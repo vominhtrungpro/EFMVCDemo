@@ -5,9 +5,29 @@ namespace EFMVCDemo.Services
 {
     public interface IStudentServices
     {
-        public List<Student> GetAllStudent();
+        public Task<IActionResult> Index();
 
-        public void DetailAStudent(int? id);
+        public Task<IActionResult> Details(int? id);
+
+        public IActionResult Create();
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public Task<IActionResult> Create([Bind("StudentId,StudentName,StudentAddress,StudentAge")] Student student);
+
+        public Task<IActionResult> Edit(int? id);
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public Task<IActionResult> Edit(int id, [Bind("StudentId,StudentName,StudentAddress,StudentAge")] Student student);
+
+        public Task<IActionResult> Delete(int? id);
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public Task<IActionResult> DeleteConfirmed(int id);
+
+
 
     }
 }
