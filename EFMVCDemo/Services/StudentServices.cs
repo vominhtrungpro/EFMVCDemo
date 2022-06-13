@@ -19,6 +19,9 @@ namespace EFMVCDemo.Services
 
         public async Task<IActionResult> Create([Bind(new[] { "StudentId,StudentName,StudentAddress,StudentAge" })] Student student)
         {
+
+
+
             if (ModelState.IsValid)
             {
                 db.Add(student);

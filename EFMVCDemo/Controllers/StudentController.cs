@@ -14,52 +14,59 @@ namespace EFMVCDemo.Controllers
         //    db = _db;
         //}
 
-        IStudentServices iss;
-        public StudentController(IStudentServices _iss)
+        IStudentServices istudentservices;
+        public StudentController(IStudentServices _istudentservices)
         {
-            iss = _iss;
+            istudentservices = _istudentservices;
         }
         public Task<IActionResult> Index()
         {
-            return iss.Index();
+            return istudentservices.Index();
         }
-        public Task<IActionResult> Details(int? id) //chuyển trang chi tiết student
+        //chuyển trang chi tiết student
+        public Task<IActionResult> Details(int? id) 
         {
 
 
-            return iss.Details(id);
+            return istudentservices.Details(id);
 
         }
-        public IActionResult Create() //chuyển trang create
+        //chuyển trang create
+        public IActionResult Create() 
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public Task<IActionResult> Create([Bind("StudentId,StudentName,StudentAddress,StudentAge")] Student student) //method add student
+        //method add student
+        public Task<IActionResult> Create([Bind("StudentId,StudentName,StudentAddress,StudentAge")] Student student) 
         {
-            return iss.Create(student);
+            return istudentservices.Create(student);
         }
-        public  Task<IActionResult> Edit(int? id) //chuyển trang edit
+        //chuyển trang edit
+        public Task<IActionResult> Edit(int? id) 
         {
-            return  iss.Edit(id);
+            return istudentservices.Edit(id);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public Task<IActionResult> Edit(int id, [Bind("StudentId,StudentName,StudentAddress,StudentAge")] Student student) //method edit
+        //method edit
+        public Task<IActionResult> Edit(int id, [Bind("StudentId,StudentName,StudentAddress,StudentAge")] Student student) 
         {
 
-            return iss.Edit(id,student);
+            return istudentservices.Edit(id,student);
         }
-        public  Task<IActionResult> Delete(int? id) //chuyển trang delete
+        //chuyển trang delete
+        public Task<IActionResult> Delete(int? id) 
         {
-            return  iss.Delete(id);
+            return istudentservices.Delete(id);
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public  Task<IActionResult> DeleteConfirmed(int id) //method delete
+        //method delete
+        public Task<IActionResult> DeleteConfirmed(int id) 
         {
-            return  iss.DeleteConfirmed(id);
+            return istudentservices.DeleteConfirmed(id);
         }
         
     }
