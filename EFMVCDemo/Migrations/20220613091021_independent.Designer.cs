@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFMVCDemo.Migrations
 {
     [DbContext(typeof(MVCContext))]
-    [Migration("20220613082559_independent")]
+    [Migration("20220613091021_independent")]
     partial class independent
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

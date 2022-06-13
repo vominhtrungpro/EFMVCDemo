@@ -10,16 +10,16 @@ using EFMVCDemo.Models;
 
 namespace EFMVCDemo.Controllers
 {
-    public class SubjectController : Controller
+    public class SubjectsController : Controller
     {
         private readonly MVCContext _context;
 
-        public SubjectController(MVCContext context)
+        public SubjectsController(MVCContext context)
         {
             _context = context;
         }
 
-        // GET: Subject
+        // GET: Subjects
         public async Task<IActionResult> Index()
         {
               return _context.Subject != null ? 
@@ -27,7 +27,7 @@ namespace EFMVCDemo.Controllers
                           Problem("Entity set 'MVCContext.Subject'  is null.");
         }
 
-        // GET: Subject/Details/5
+        // GET: Subjects/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Subject == null)
@@ -45,13 +45,13 @@ namespace EFMVCDemo.Controllers
             return View(subject);
         }
 
-        // GET: Subject/Create
+        // GET: Subjects/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Subject/Create
+        // POST: Subjects/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,7 +67,7 @@ namespace EFMVCDemo.Controllers
             return View(subject);
         }
 
-        // GET: Subject/Edit/5
+        // GET: Subjects/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Subject == null)
@@ -83,7 +83,7 @@ namespace EFMVCDemo.Controllers
             return View(subject);
         }
 
-        // POST: Subject/Edit/5
+        // POST: Subjects/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -118,7 +118,7 @@ namespace EFMVCDemo.Controllers
             return View(subject);
         }
 
-        // GET: Subject/Delete/5
+        // GET: Subjects/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Subject == null)
@@ -136,7 +136,7 @@ namespace EFMVCDemo.Controllers
             return View(subject);
         }
 
-        // POST: Subject/Delete/5
+        // POST: Subjects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
