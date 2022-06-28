@@ -27,7 +27,7 @@ namespace EFMVCDemo.Services
         [ValidateAntiForgeryToken]
         public Task<IActionResult> DeleteConfirmed(int id);
 
-
+        List<Student> GetAllStudent();
 
     }
 }

@@ -19,9 +19,6 @@ namespace EFMVCDemo.Services
 
         public async Task<IActionResult> Create([Bind(new[] { "StudentId,StudentName,StudentAddress,StudentAge" })] Student student)
         {
-
-
-
             if (ModelState.IsValid)
             {
                 db.Add(student);
@@ -135,6 +132,11 @@ namespace EFMVCDemo.Services
         private bool StudentExists(int id)
         {
             return (db.Students?.Any(e => e.StudentId == id)).GetValueOrDefault();
+        }
+        public List<Student> GetAllStudent()
+        {
+            //EF stuff 
+            return db.Students.ToList();
         }
     }
 }
