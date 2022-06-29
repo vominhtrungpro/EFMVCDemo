@@ -2,6 +2,7 @@
 using EFMVCDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NUnit.Framework;
 
 namespace EFMVCDemo.Services
 {
@@ -17,7 +18,7 @@ namespace EFMVCDemo.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IActionResult> Create([Bind(new[] { "StudentId,StudentName,StudentAddress,StudentAge" })] Student student)
+        public async Task<IActionResult> Create(Student student)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +94,7 @@ namespace EFMVCDemo.Services
             return View(student);
         }
 
-        public async Task<IActionResult> Edit(int id, [Bind(new[] { "StudentId,StudentName,StudentAddress,StudentAge" })] Student student)
+        public async Task<IActionResult> Edit(int id, Student student)
         {
             if (id != student.StudentId)
             {

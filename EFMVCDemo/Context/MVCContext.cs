@@ -31,6 +31,8 @@ namespace EFMVCDemo.Context
         
         public DbSet<Subject> Subject { get; set; }
 
+        public DbSet<Person> Person { get; set; }
+
         public DbSet<StudentSubject> StudentSubjects { get; set; }
 
 
