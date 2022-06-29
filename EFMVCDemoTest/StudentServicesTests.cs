@@ -39,6 +39,8 @@ namespace EFMVCDemoTest
             var create = _studentservices.Create(student);
 
             Assert.That(student.StudentAge, Is.AtMost(100));
+            Assert.That(student.StudentName.Count, Is.AtMost(10));
+
         }
     }
 }
