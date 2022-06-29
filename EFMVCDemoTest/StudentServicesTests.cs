@@ -40,6 +40,7 @@ namespace EFMVCDemoTest
 
             Assert.That(student.StudentAge, Is.AtMost(100));
             Assert.That(student.StudentName.Count, Is.AtMost(10));
+            Assert.That(create, Is.Not.Null);
 
         }
     }
